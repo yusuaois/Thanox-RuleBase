@@ -1,0 +1,12 @@
+[
+{
+"name": "保活",
+"description": "APP被杀死时，重新启动",
+"priority": 1,
+"condition": "pkgKilled == true && globalVarOf$baohuo.contains(pkgName)",
+"actions": [
+"ui.showShortToast(\"重启受保护APP\");",
+"activity.launchProcessForPackage(pkgName)"
+]
+}
+]

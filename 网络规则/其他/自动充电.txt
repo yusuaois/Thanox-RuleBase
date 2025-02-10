@@ -1,0 +1,29 @@
+需要su api
+充电停止
+[
+  {
+    "name": "充电停止",
+    "description": "电量达到99，30秒后停止充电",
+    "priority": 1,
+    "delay": 30000,
+    "condition": "isCharging==true && batteryChanged == true && batteryLevel == 99",
+    "actions": [
+      "su.exe(\"echo 1 > /sys/class/power_supply/battery/input_suspend\");",
+      "ui.showNotification(\"充电\",\"已停止充电\",\"当前电量为：\" + batteryLevel + \"，现在开始，随时都可以拔电啦！\",false)"
+    ]
+  }
+]
+充电解锁
+[
+  {
+    "name": "解除充电禁用（定时）",
+    "description": "每10分钟检查电量低于30%时自动恢复充电",
+    "priority": 1,
+    "interval": 600000, 
+    "condition": "isCharging==false && batteryChanged == true && batteryLevel < 30",
+    "actions": [
+      "su.exe(\"echo 0 > /sys/class/power_supply/battery/input_suspend\");",
+      "ui.showNotification(\"充电\", \"已恢复充电\", \"当前电量为：\" + batteryLevel + \"，开始为设备充电！\", false)"
+    ]
+  }
+]

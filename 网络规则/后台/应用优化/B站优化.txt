@@ -1,0 +1,12 @@
+[
+{
+"name": "黑名单 哔哩哔哩优化",
+"description": "哔站切到后台1.5s后只保留主进程，后台视频",
+"priority": 1,
+"delay": 1500,
+"condition": "frontPkgChanged == true && from == \"tv.danmaku.bili\"",
+"actions": [
+"foreach(process : thanos.activityManager.getRunningAppProcessForPackage(from)) { if (thanos.activityManager.currentFrontApp != \"tv.danmaku.bili\") { thanos.activityManager.killProcessByName(\"tv.danmaku.bili:pushservice\");thanos.activityManager.killProcessByName(\"com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:1\");thanos.activityManager.killProcessByName(\"tv.danmaku.bili:web\");thanos.activityManager.killProcessByName(\"tv.danmaku.bili:download\");thanos.activityManager.killProcessByName(\"com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0\")}}"
+]
+}
+]

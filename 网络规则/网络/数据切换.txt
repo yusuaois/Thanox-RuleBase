@@ -1,0 +1,9 @@
+[
+	{
+		"name": "数据切换",
+		"description": "使用另一张卡的数据 | 要求: 当前使用的卡必须打开数据, 否则会误判",
+		"priority": -1,
+		"condition": "shortcutLaunched&&shortcutValue=='sim2sim'",
+		"actions": ["if(data.isDataEnabledForSlot(0)){data.setDataEnabledForSlot(1,true);}else{data.setDataEnabledForSlot(0,true);}"]
+	}
+]

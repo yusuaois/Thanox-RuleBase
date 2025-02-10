@@ -1,0 +1,10 @@
+[{
+"name": "抖音优化",
+"description": "让抖音进入后台时仅保留主进程",
+"priority": -1,
+"condition": "frontPkgChanged == true && from == 'com.ss.android.ugc.aweme'",
+"delay": 5000,
+"actions": [
+"su.exe(\"ps -ef|grep com.ss.android.ugc.aweme:|grep -v grep|awk '{print $2}'|xargs kill -9\")"
+]
+}]

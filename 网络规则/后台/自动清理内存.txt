@@ -1,0 +1,21 @@
+[
+{
+"name": "自动清理内存",
+"description": "当实际内存占用达到90%以上进行一键清理",
+"priority": 1,
+"condition": "frontPkgChanged == true &&(100 * (thanos.getActivityManager().getMemoryInfo().totalMem-thanos.getActivityManager().getMemoryInfo().availMem)/thanos.getActivityManager().getMemoryInfo().totalMem)>90",
+"actions": [
+"task.clearBackgroundTasks()"
+]
+}
+] [
+    {
+        "name": "",
+        "description": "",
+        "priority": 1,
+        "condition": "",
+        "actions": [
+            ""
+        ]
+    }
+]

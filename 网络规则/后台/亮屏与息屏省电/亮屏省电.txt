@@ -1,0 +1,33 @@
+[
+{
+"name": "亮屏省电v3",
+"description": "退出doze 开核 关闭低电量模式,stop_app添加息屏想让待机的应用",
+"priority": 1,
+"condition": "screenOn == true",
+"actions":
+[
+
+"su.exe(\"dumpsys deviceidle disable all\");",
+"su.exe(\"dumpsys deviceidle unforce\");"	,
+"su.exe(\"dumpsys battery reset\");",
+
+"su.exe(\"chmod 644 /sys/devices/system/cpu/cpu6/online\")",
+"su.exe(\"chmod 644 /sys/devices/system/cpu/cpu7/online\")",
+
+"su.exe(\"echo 1 > /sys/devices/system/cpu/cpu6/online\")",
+"su.exe(\"echo 1 > /sys/devices/system/cpu/cpu7/online\")",
+"su.exe(\"settings put global low_power 0\")",
+"foreach (pkn : globalVarOf$stop_app){su.exe(\"am set-inactive \"+pkn+\" false\")}"
+]
+}
+][
+    {
+        "name": "",
+        "description": "",
+        "priority": 1,
+        "condition": "",
+        "actions": [
+            ""
+        ]
+    }
+]

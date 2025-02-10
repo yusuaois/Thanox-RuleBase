@@ -1,0 +1,27 @@
+[
+{
+"name": "小飞机开",
+"description": "打开电报，Play商店时，开启VPN",
+"priority": 2,
+"condition": "frontPkgChanged == true && to == \"org.telegram.messenger\" || to == \"com.android.vending\"&& from == \"com.miui.home\"",
+"actions": [
+"su.exe(\"am start-service com.github.kr328.clash.foss/com.github.kr328.clash.service.TunService\");"
+]
+}
+]
+
+
+
+
+
+[
+{
+"name": "小飞机关",
+"description": "离开电报，Play商店时，关闭VPN",
+"priority": 2,
+"condition": "frontPkgChanged == true && from == \"org.telegram.messenger\" || from == \"com.android.vending\" && to == \"com.miui.home\"",
+"actions": [
+"killer.killPackage(\"com.github.kr328.clash.foss\")"
+]
+}
+]

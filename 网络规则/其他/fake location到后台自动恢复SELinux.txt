@@ -1,0 +1,21 @@
+[
+
+{
+
+"name": "fake location到后台自动恢复",
+
+"description": "到后台自动恢复SELinux",
+
+"priority": -2,
+
+"condition": "frontPkgChanged == true && from == \"com.lerist.fakelocation\"",
+
+"actions": [
+
+"Thread.sleep(500);",
+
+"su.exe(\"setenforce 1\")"
+
+]
+}
+]

@@ -1,0 +1,21 @@
+[
+{
+"name": "划卡即清",
+"description": "划掉任务卡片直接杀死后台，全局变量HUAKA",
+"priority": 1,
+"condition": "taskRemoved == true && globalVarOf$HUAKA.contains(pkgName) ",
+"actions": [
+"killer.killPackage(pkgName);"
+]
+}
+][
+    {
+        "name": "",
+        "description": "",
+        "priority": 1,
+        "condition": "",
+        "actions": [
+            ""
+        ]
+    }
+]

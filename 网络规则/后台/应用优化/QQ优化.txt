@@ -1,0 +1,12 @@
+[
+{
+"name": "AutoKill-QQMSF",
+"description": "QQ被切入后台三秒将自动结束MSF服务及其他无用进程，强制QQ使用MiPush或其他系统级推送服务。\n原作者酷安@星澪Star_ZER0 \n修改者酷安@微软Mic",
+"priority": -2,
+"condition": "frontPkgChanged == true && from == \"com.tencent.mobileqq\"",
+"actions": [
+"Thread.sleep(3000);",
+"su.exe(\"ps -ef|grep com.tencent.mobileqq:|grep :MSF|grep -v :video|grep -v grep|awk '{print $2}'|xargs kill -9\")"
+]
+}
+]

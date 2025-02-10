@@ -1,0 +1,23 @@
+[
+{
+"name": "1分钟未前台自动杀后台",
+"description": "挂后台杀应用，应用名单来自全局变BackStill，1分钟之后杀死",
+"priority": 1,
+"condition": "frontPkgChanged == true && globalVarOf$BackStill.contains(from) ",
+"actions": [
+"Thread.currentThread().sleep(60000);",
+"if(activity.getFrontAppPackage() != from)[];",
+"if(activity.getFrontAppPackage() != from)[killer.killPackage(from)];"
+]
+}
+][
+    {
+        "name": "",
+        "description": "",
+        "priority": 1,
+        "condition": "",
+        "actions": [
+            ""
+        ]
+    }
+]

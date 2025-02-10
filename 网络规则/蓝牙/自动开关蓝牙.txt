@@ -1,0 +1,11 @@
+[
+{
+"name": "自动开关蓝牙",
+"description": "使用了全局变量bt。酷安@幻觉",
+"priority": 2,
+"condition": "if(frontPkgChanged == true && globalVarOf$bt.contains(to)) { (hw.enableBT() ?) } else if ( pkgKilled == true && globalVarOf$bt.contains(pkgName)) { (hw.disableBT() ?) }",
+"actions": [
+""
+]
+}
+]

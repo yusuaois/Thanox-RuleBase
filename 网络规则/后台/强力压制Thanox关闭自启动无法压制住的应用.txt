@@ -1,0 +1,12 @@
+[
+  {
+  "name": "强力压制Thanox关闭自启动无法压制住的应用",
+  "description": "新建bkill全局变量，把需要强力压制的应用关闭自启动(包括系统的和Thanox的)，然后添加进bkill全局变量内；当切换应用或返回桌面或灭屏亮屏时，如果全局变量bkill列表中的应用不在任务卡片内，则杀死后台进程；如果需要某个应用驻留后台，需要在任务卡片里锁定这个应用",
+  "priority": 2,
+  "delay": 1,
+  "condition": "frontPkgChanged == true || screenOff == true || screenOn == true",
+  "actions": [
+      "for (String s : globalVarOf$bkill){if((!task.hasTaskFromPackage(s)) && (thanos.activityManager.isPackageRunning(s))){killer.killPackage(s);ui.showShortToast(\"移除\" +s);}}; "
+    ]
+  }
+]

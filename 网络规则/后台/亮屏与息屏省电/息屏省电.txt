@@ -1,0 +1,28 @@
+[
+{
+"name": "息屏省电v3.5",
+"description": "分情况开启轻度(重度)doze 回收挂载 切换yc为省电 关大核 改为低电量模式,kill_app里面添加息屏想让杀死的应用",
+"priority": 1,
+"condition": "screenOff == true",
+"actions": [
+"su.exe(\"chmod 644 /storage/emulated/0/Android/yc/uperf/cur_powermode.txt\")",
+"su.exe(\"echo powersave > /sdcard/Android/yc/uperf/cur_powermode.txt\")",
+"foreach (kp : globalVarOf$kill_app){killer.killPackage(kp)}",
+"foreach (sp : globalVarOf$stop_app){su.exe(\"am set-inactive \"+sp+\" true\")}",
+"ui.showShortToast(su.exe(\"head -n 1 /sys/class/power_supply/battery/current_now\").out[0]>0)",
+"su.exe(\"settings put global low_power 1\")",
+"if(su.exe(\"head -n 1 /sys/class/power_supply/battery/current_now\").out[0]>0){su.exe(\"dumpsys deviceidle enable deep\");su.exe(\"dumpsys deviceidle force-idle deep\");su.exe(\"chmod 644 /sys/devices/system/cpu/cpu6/online\");su.exe(\"chmod 644 /sys/devices/system/cpu/cpu7/online\");su.exe(\"echo 0 > /sys/devices/system/cpu/cpu6/online\");su.exe(\"echo 0 > /sys/devices/system/cpu/cpu7/online\"))}else{su.exe(\"dumpsys deviceidle enable light\");su.exe(\"dumpsys deviceidle force-idle light\")}"
+
+]
+}
+][
+    {
+        "name": "",
+        "description": "",
+        "priority": 1,
+        "condition": "",
+        "actions": [
+            ""
+        ]
+    }
+]

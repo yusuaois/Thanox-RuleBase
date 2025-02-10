@@ -1,0 +1,9 @@
+[
+	{
+		"name": "免流_自动切卡",
+		"description": "by诗里沧海怨怼 | 使用免流App时, 自动切换到免流的卡 | directedSlot指定免流卡槽, 卡1为0, 卡2为1",
+		"priority": 1,
+		"condition": "frontPkgChanged",
+		"actions": ["directedSlot=0;if(globalVarOf$directedApp.contains(to)){data.setDataEnabledForSlot(directedSlot,true);}else if(data.isDataEnabledForSlot(directedSlot)){data.setDataEnabledForSlot((directedSlot+1)%2,true);}"]
+	}
+]

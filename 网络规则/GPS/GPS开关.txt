@@ -1,0 +1,11 @@
+[
+{
+"name": "GPS开关",
+"description": "打开应用开启GPS，关闭应用关闭GPS，使用全局变量GPS",
+"priority": 2,
+"condition": "if(frontPkgChanged == true && globalVarOf$GPS.contains(to)) { (hw.enableLocation() ?) } else if ( pkgKilled == true && globalVarOf$GPS.contains(pkgName)) { (hw.disableLocation() ?) }",
+"actions": [
+""
+]
+}
+]

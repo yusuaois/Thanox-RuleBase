@@ -1,0 +1,42 @@
+请在thanox中启用su-API thanox需要后台运行
+！版：
+[
+{
+"name": "安装、更新、卸载时更新target包名_黑白名单版",
+"description": "安装、更新、卸载时更新target，目录data/adb/tricky_store/下，blacklist_pkgs.txt为黑名单，system_pkgs.txt类似为白名单，可自行修改，注意文本最后换行保存",
+"priority": 1,
+"condition": "pkgAdded == true || pkgUpdated == true || pkgRemoved == true",
+"actions": [
+"su.exe(\"cd /data/adb/tricky_store/\")",
+"su.exe(\"[ -f blacklist_pkgs.txt ] || touch blacklist_pkgs.txt\")",
+"su.exe(\"[ -f system_pkgs.txt ] || touch system_pkgs.txt\")",
+"su.exe(\"rm target.txt\")",
+"su.exe(\"pm list packages -3 | sed 's/.*://g; s/$/!/' > temp.txt\")",
+"su.exe(\"grep -v -f blacklist_pkgs.txt temp.txt > current_pkgs.txt\")",
+"su.exe(\"cat system_pkgs.txt current_pkgs.txt > target.txt\")",
+"su.exe(\"rm current_pkgs.txt temp.txt\")",
+"ui.showShortToast(\"target已更新\")"
+]
+}
+]
+
+无！版：
+[
+{
+"name": "安装、更新、卸载时更新target包名_黑白名单版",
+"description": "安装、更新、卸载时更新target，目录data/adb/tricky_store/下，blacklist_pkgs.txt为黑名单，system_pkgs.txt类似为白名单，可自行修改，注意文本最后换行保存",
+"priority": 1,
+"condition": "pkgAdded == true || pkgUpdated == true || pkgRemoved == true",
+"actions": [
+"su.exe(\"cd /data/adb/tricky_store/\")",
+"su.exe(\"[ -f blacklist_pkgs.txt ] || touch blacklist_pkgs.txt\")",
+"su.exe(\"[ -f system_pkgs.txt ] || touch system_pkgs.txt\")",
+"su.exe(\"rm target.txt\")",
+"su.exe(\"pm list packages -3 | sed 's/.*://g' > temp.txt\")",
+"su.exe(\"grep -v -f blacklist_pkgs.txt temp.txt > current_pkgs.txt\")",
+"su.exe(\"cat system_pkgs.txt current_pkgs.txt > target.txt\")",
+"su.exe(\"rm current_pkgs.txt temp.txt\")",
+"ui.showShortToast(\"target已更新\")"
+]
+}
+] 

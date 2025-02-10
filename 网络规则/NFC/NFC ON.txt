@@ -1,0 +1,12 @@
+[
+{
+"name": "nfc on",
+"description": "打开钱包 打开nfc",
+"priority": 2,
+"delay": 0,
+"condition": "activity.getFrontAppPackage() == 'com.finshell.wallet'",
+"actions": [
+"hw.enableNfc();"
+]
+}
+]

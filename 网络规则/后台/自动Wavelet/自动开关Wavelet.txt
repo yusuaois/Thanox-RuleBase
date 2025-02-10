@@ -1,0 +1,32 @@
+AA:BB:CC:DD:EE:FF 为你的蓝牙设备地址，需修改为自己的
+https://github.com/aicareles/Android-BLE
+
+[
+{
+"name": "自动打开Wavelet",
+"description": "连接到指定蓝牙设备后自动打开 Wavelet 应用。",
+"author": "轻月音",
+"priority": 1,
+"delay": 0,
+"condition": "btConnectionStateChanged == true && btConnectionStateConnected == true && btBoundedDeviceAddresses.contains(\"AA:BB:CC:DD:EE:FF\")",
+"actions": [
+"ui.showShortToast(\"启动 Wavelet\");",
+"activity.launchMainActivityForPackage(\"com.pittvandewitt.wavelet\")"
+]
+}
+]
+
+[
+{
+"name": "自动关闭Wavelet",
+"description": "蓝牙断开后自动关闭 Wavelet 应用。",
+"priority": 1,
+"delay": 0,
+"condition": "btConnectionStateChanged == true && btConnectionStateDisconnected == true && task.hasTaskFromPackage(\"com.pittvandewitt.wavelet\")",
+"actions": [
+"ui.showShortToast(\"关闭 Wavelet\");",
+"killer.killPackage(\"com.pittvandewitt.wavelet\")",
+"task.removeTasksForPackage(\"com.pittvandewitt.wavelet\")"
+]
+}
+]

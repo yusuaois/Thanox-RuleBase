@@ -1,0 +1,11 @@
+[
+{
+"name": "弹幕通知",
+"description": "收到通知或通知更新时时用弹幕展示;设置全局变量danmuapps，添加需要弹幕显示其通知的应用包名;设置全局变量gameapps，添加当该应用在前台不显示弹幕的应用包名;",
+"priority": 1,
+"condition": "(notificationRemoved == false && (notificationAdded || notificationUpdated)) && !notification.isForegroundService && pkgName != \"android\" && globalVarOf$danmuapps.contains(pkgName)&&(! globalVarOf$gameApps.contains(activity.getFrontAppPackage()))",
+"actions": [
+"ui.showDanmu(\"app://\" + pkgName,thanos.pkgManager.getAppInfo(pkgName).appLabel + \" :\" + notificationTitle + \":\" + notificationContent);"
+]
+}
+]

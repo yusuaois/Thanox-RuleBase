@@ -1,0 +1,12 @@
+[
+  {
+    "name": "AUTO GPS",
+    "description": "自动开关GPS，在后台仍有GPS应用时，保留GPS 使用GPSApp环境变量",
+    "author": "yusuaois",
+    "priority": 1,
+    "condition": "(frontPkgChanged&& globalVarOf$GPSApp.contains(to))||(taskRemoved&& globalVarOf$GPSApp.contains(pkgName))",
+    "actions": [
+"cntGPS=0;if(frontPkgChanged&&globalVarOf$GPSApp.contains(to)&&!hw.isLocationEnabled()){ui.showShortToast(\"开启GPS\");hw.enableLocation();break}  else if (taskRemoved&& globalVarOf$GPSApp.contains(pkgName)){var needClose = true;foreach(gpsapp:globalVarOf$GPSApp){if(++cntGPS==50){Thread.sleep(150);cntGPS=0;}if(gpsapp != null && task.hasTaskFromPackage(gpsapp)){ui.showShortToast(\"为后台应用保留了GPS\");needClose = false;break}}if (needClose&&hw.isLocationEnabled()) {ui.showShortToast(\"GPS已关闭\");hw.disableLocation();break}}"
+    ]
+  }
+]

@@ -1,0 +1,12 @@
+[
+{
+"name": "AUTO VPN v1.0",
+"description":
+"自动开关VPN,依赖需要VPN的应用包名加入全局变量VPN",
+"author":"deepseek&AABCD_",
+"priority": 1,
+"condition": 
+"(frontPkgChanged&& globalVarOf$VPN.contains(to))||(pkgKilled&& globalVarOf$VPN.contains(pkgName))",
+"actions": ["if(frontPkgChanged&&globalVarOf$VPN.contains(to)){ui.showShortToast(\"启动VPN连接\");su.exe(\"am start-service com.github.metacubex.clash.meta/com.github.kr328.clash.service.TunService\");}  else if (pkgKilled&& globalVarOf$VPN.contains(pkgName)){var needClose = true;foreach(vpnapp:globalVarOf$VPN){if(task.hasTaskFromPackage(vpnapp)){ui.showShortToast(\"为后台应用保留了VPN\");needClose = false;break}}if (needClose) {ui.showShortToast(\"VPN已关闭\");killer.killPackage(\"com.github.metacubex.clash.meta\");}}"]
+}
+]

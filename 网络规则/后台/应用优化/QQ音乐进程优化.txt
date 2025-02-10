@@ -1,0 +1,22 @@
+[
+{
+"name": "QQ音乐进程优化",
+"description": "优化保留QQPlayerService，杀死其他进程，3秒后切应用或锁屏时操作",
+"priority": -2,
+"condition": "frontPkgChanged == true && from == \"com.tencent.qqmusic\" || screenOff == true",
+"actions": [
+"Thread.sleep(3000);",
+"su.exe(\"ps -ef|grep com.tencent.qqmusic|grep -v QQPlayerService|grep -v grep|awk '{print $2}'|xargs kill -9\")"
+]
+}
+][
+    {
+        "name": "",
+        "description": "",
+        "priority": 1,
+        "condition": "",
+        "actions": [
+            ""
+        ]
+    }
+]

@@ -1,0 +1,12 @@
+[
+{
+"name": "自动开关NFC",
+"description": "打开应用开NFC，关闭应用关NFC。应用名单来自全局变量nfc。",
+"priority": 2,
+"condition": "frontPkgChanged == true && globalVarOf$nfc.contains(to) && hw.isNfcEnabled() == false || (pkgKilled == true && globalVarOf$nfc.contains(pkgName) && hw.isNfcEnabled() == true)",
+"actions": [
+"if (frontPkgChanged == true && globalVarOf$nfc.contains(to) && hw.isNfcEnabled() == false) { hw.enableNfc(); }",
+"if (pkgKilled == true && globalVarOf$nfc.contains(pkgName) && hw.isNfcEnabled() == true) { hw.disableNfc(); }"
+]
+}
+]

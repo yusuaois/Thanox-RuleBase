@@ -1,0 +1,11 @@
+[
+{
+"name": "钉钉打卡自动开关GPS2",
+"description": "打开钉钉打卡界面时打开GPS，返回钉钉主界面时关闭GPS",
+"priority": 1,
+"condition": "if( activityResumed == true && hw.isLocationEnabled() == false && componentNameAsShortString == \"com.alibaba.android.rimet/com.alibaba.lightapp.runtime.ariver.TheOneActivityMainTaskSwipe\") { ui.showShortToast(\"GPS打开\" + (hw.enableLocation() ? \"成功\" : \"失败\")) } else if ( activityResumed == true && hw.isLocationEnabled() == true && componentNameAsShortString == \"com.alibaba.android.rimet/.biz.LaunchHomeActivity\") { ui.showShortToast(\"GPS关闭\" + (hw.disableLocation() ? \"成功\" : \"失败\")) }",
+"actions": [
+""
+]
+}
+]

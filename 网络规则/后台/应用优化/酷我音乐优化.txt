@@ -1,0 +1,11 @@
+[{"name": "酷我音乐优化","description": "进入后台，保留主进程播放\n切后台4秒后生效","priority": -2,"condition": "frontPkgChanged == true && from == \"cn.kuwo.player\" || screenOff == true","actions": ["Thread.sleep(4000);","su.exe(\"ps -ef|grep cn.kuwo.player:|grep -v service|grep -v grep|awk '{print $2}'|xargs kill -9\")"]}][
+    {
+        "name": "",
+        "description": "",
+        "priority": 1,
+        "condition": "",
+        "actions": [
+            ""
+        ]
+    }
+]

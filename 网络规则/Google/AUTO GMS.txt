@@ -1,0 +1,12 @@
+[
+{
+"name": "AUTO GMS v1.2",
+"description":
+"自动开关GMS,依赖谷歌服务的应用包名加入全局变量Google",
+"author":"deepseek",
+"priority": 1,
+"condition":
+"(frontPkgChanged&& globalVarOf$Google.contains(to))||(pkgKilled&& globalVarOf$Google.contains(pkgName))",
+"actions": ["if(frontPkgChanged&&globalVarOf$Google.contains(to)){ui.showShortToast(\"开启GMS\");pkg.enableApplication(\"com.google.android.gms\");pkg.enableApplication(\"com.google.android.gsf\");pkg.enableApplication(\"com.google.android.onetimeinitializer\");pkg.enableApplication(\"com.google.android.ext.shared\");pkg.enableApplication(\"com.android.vending\");pkg.enableApplication(\"com.google.android.configupdater\");pkg.enableApplication(\"com.google.android.printservice.recommendation\");}  else if (pkgKilled&& globalVarOf$Google.contains(pkgName)){var needClose = true;foreach(gmsapp:globalVarOf$Google){if(task.hasTaskFromPackage(gmsapp)){ui.showShortToast(\"为后台应用保留了GMS\");needClose = false;break}}if (needClose) {ui.showShortToast(\"GMS已关闭\");pkg.disableApplication(\"com.google.android.gms\");pkg.disableApplication(\"com.google.android.gsf\");pkg.disableApplication(\"com.google.android.onetimeinitializer\");pkg.disableApplication(\"com.google.android.ext.shared\");pkg.disableApplication(\"com.android.vending\");pkg.disableApplication(\"com.google.android.gms.location.history\");pkg.disableApplication(\"com.google.android.configupdater\");pkg.disableApplication(\"com.google.android.printservice.recommendation\")}}"]
+}
+]
