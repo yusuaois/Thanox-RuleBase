@@ -8,14 +8,4 @@
 "killer.killPackage(pkgName);"
 ]
 }
-][
-    {
-        "name": "",
-        "description": "",
-        "priority": 1,
-        "condition": "",
-        "actions": [
-            ""
-        ]
-    }
 ]

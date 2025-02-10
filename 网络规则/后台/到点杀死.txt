@@ -1,0 +1,18 @@
+将该情景模式使用JSON粘贴好后，设置好全局变量及应用
+
+选择右上角的三个点，找到引擎，选择时间与日期
+
+左下角是定时时间，右下角是间隔时间，Tag写tmieKill，至于时间随你自己选了
+  定时时间想要设置多个，就需要改情景模式，将【"condition": "timeTick&&tag=='timeKill'",】改成【"condition": "timeTick&&(tag=='timeKill1' || tag=='timeKill2')",】如果还想要更多定时时间，则将右小括号前继续增加【 || tag=='timeKill？'】其中问好就是代表数字，自己往后加就行了，【||前有个空格，不要遗漏】
+  间隔时间就不需要改情景模式，直接在Tag写tmieKill就行
+
+
+[
+    {
+        "name": "到点杀死",
+        "description": "by诗里沧海怨怼",
+        "priority": 1,
+        "condition": "timeTick&&tag=='timeKill'",
+        "actions":["aMan=thanos.activityManager;for(app:globalVarOf$timedApp){if(aMan.isPackageRunning(app)&&!activity.frontAppPackage.equals(app)){aMan.forceStopPackage(app);}}ui.showShortToast('到点杀死');"]
+    }
+]

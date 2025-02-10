@@ -1,0 +1,13 @@
+[
+{
+"name": "息屏关数据，清理后台",
+"description": "息屏5分钟后再判断是否息屏，若息屏则关数据，清理后台，300000毫秒=300秒=5分钟，可自行修改，酷安@梦霓华裳 ",
+"priority": 1,
+"condition": "screenOff == true",
+"delay": 300000,
+"actions": [
+"if(screenOn == false){data.setDataEnabled(false)}",
+"if(screenOn == false){clearBackgroundTasks()}"
+]
+}
+]

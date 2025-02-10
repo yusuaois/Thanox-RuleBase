@@ -1,0 +1,11 @@
+[
+{
+"name": "cpuset变成background",
+"description": "打开程序时，变成background，分配cpu1-3",
+"priority": 2,
+"condition": "frontPkgChanged == true && globalVarOf$background.contains(to)",
+"actions": [
+"su.exe(\"source /storage/emulated/0/Android/线程分配.sh&&boost background \" +to);"
+]
+}
+]

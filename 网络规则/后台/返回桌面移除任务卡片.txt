@@ -1,0 +1,12 @@
+[
+{
+"name": "返回桌面移除任务卡片",
+"description": "返回桌面(变量HomeApp)移除全局变量Task列表中的应用任务卡片",
+"priority": 1,
+"condition": " frontPkgChanged == true && globalVarOf$HomeApp.contains(to) && globalVarOf$Task.contains(from) && task.hasTaskFromPackage(from)",
+"actions": [
+"task.removeTasksForPackage(from)",
+"ui.showShortToast(\"🌪️移除\" + thanos.pkgManager.getAppInfo(from).appLabel +\"任务🌪️\")"
+]
+}
+] 
