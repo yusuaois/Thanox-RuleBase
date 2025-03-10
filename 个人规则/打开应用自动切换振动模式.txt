@@ -1,0 +1,12 @@
+[
+    {
+        "name": "打开应用自动开关震动",
+        "description": "使用vibrateApp环境变量",
+        "author": "yusuaois",
+        "priority": 1,
+        "condition": "if(frontPkgChanged && globalVarOf$vibrateApp.contains(to)){sh.exe(\"settings put system haptic_feedback_enabled 0\");}else if(frontPkgChanged && globalVarOf$vibrateApp.contains(from)){sh.exe(\"settings put system haptic_feedback_enabled 1\");}",
+        "actions": [
+            ""
+        ]
+    }
+]
