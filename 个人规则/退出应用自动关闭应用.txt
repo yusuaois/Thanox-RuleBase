@@ -1,0 +1,12 @@
+[  
+  {  
+    "name": "Close App on Activity Exit",  
+    "description": "Close the entire app when exiting the specified Activity By yusuaois",  
+    "priority": -1,  
+    "condition": "globalVarOf$AutoClose.contains(from)&&!globalVarOf$AutoClose.contains(to)",  
+    "delay": 100,  
+    "actions":    
+     ["Thread.sleep(10);if(globalVarOf$AutoClose.contains(activity.getFrontAppPackage())){break;} killer.killPackage(from);"  
+    ]  
+  }  
+]
